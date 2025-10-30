@@ -58,6 +58,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  url: <%= ENV["DATABASE_URL"] %>
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  primary:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
+  primary_replica:
+    <<: *default
+    url: <%= ENV["DATABASE_URL_REPLICA"] || ENV["DATABASE_URL"] %>
+    replica: true
+
