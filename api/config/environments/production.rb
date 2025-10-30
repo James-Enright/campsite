@@ -117,4 +117,7 @@ Rails.application.configure do
 
   # required to access the app via Fly private network
   config.hosts << "campsite-api.internal"
+
+  #Added for render deployment
+  config.hosts << "campsite-api.onrender.com"
 end
