@@ -150,7 +150,12 @@ const COMMANDS: CommandItemProps[] = [
     searchTerms: ['toggle', 'section', 'collapse', 'expand', 'details'],
     icon: <PlayIcon />,
     command: ({ editor, range }: CommandProps) => {
-      editor.chain().focus().deleteRange(range).setDetails().run()
+      if (typeof (editor.chain().focus().deleteRange(range) as any).setDetails === 'function') {
+        (editor.chain().focus().deleteRange(range) as any).setDetails().run()
+      } else {
+        // fallback: just insert a horizontal rule or paragraph
+        editor.chain().focus().deleteRange(range).setNode('paragraph').run()
+      }
 
       // open the toggle section after creating it
       setTimeout(() => {
