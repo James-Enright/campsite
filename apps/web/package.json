@@ -19,7 +19,6 @@
     "@100mslive/hms-video-store": "catalog:",
     "@100mslive/react-sdk": "catalog:",
     "@campsite/config": "workspace:*",
-    "@campsite/editor": "workspace:*",
     "@campsite/regex": "workspace:*",
     "@campsite/ui": "workspace:*",
     "@emoji-mart/data": "catalog:",
