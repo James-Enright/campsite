@@ -1,6 +1,6 @@
 {
   "extends": "@campsite/tsconfig/base.json",
-  "include": ["."],
+  "include": ["src", "src/types"],
   "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "allowJs": true,
