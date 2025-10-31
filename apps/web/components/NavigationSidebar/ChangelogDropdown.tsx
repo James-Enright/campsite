@@ -10,7 +10,7 @@ import { useGetChangelog } from '@/hooks/useGetLatestRelease'
 import { useStoredState } from '@/hooks/useStoredState'
 import { Changelog } from '@/utils/types'
 
-type SettingsLinkProps = React.ComponentProps<typeof Link>;
+type SettingsLinkProps = React.ComponentPropsWithoutRef<typeof Link>;
 
 const SettingsLink = forwardRef<HTMLAnchorElement, SettingsLinkProps>(
   ({ href, children, ...rest }, ref) => (
