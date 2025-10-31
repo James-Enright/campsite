@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES2018",
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
@@ -17,14 +18,17 @@
       "@campsite/types/*": ["../../packages/types/*"],
       "@campsite/types": ["../../packages/types/index"]
     },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "strictNullChecks": true
   },
   "extends": "@campsite/tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "vitest.config.mts", "**/*.config.js", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "vitest.config.mts",
+    "**/*.config.js",
+    ".next/types/**/*.ts"
+  ],
   "exclude": ["node_modules"]
 }
