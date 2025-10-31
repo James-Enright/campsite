@@ -10,21 +10,15 @@ import { useGetChangelog } from '@/hooks/useGetLatestRelease'
 import { useStoredState } from '@/hooks/useStoredState'
 import { Changelog } from '@/utils/types'
 
-interface LinkProps {
-  children: React.ReactNode
-  href: string
-  [key: string]: any
-}
+type SettingsLinkProps = React.ComponentProps<typeof Link>;
 
-const SettingsLink = forwardRef((props: LinkProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-  let { href, children, ...rest } = props
-
-  return (
+const SettingsLink = forwardRef<HTMLAnchorElement, SettingsLinkProps>(
+  ({ href, children, ...rest }, ref) => (
     <Link href={href} ref={ref} {...rest}>
       {children}
     </Link>
   )
-})
+);
 
 SettingsLink.displayName = 'SettingsLink'
 
