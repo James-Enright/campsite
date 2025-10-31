@@ -36,23 +36,17 @@ import { useCurrentUserIsStaff } from '@/hooks/useCurrentUserIsStaff'
 import { useGetCurrentUser } from '@/hooks/useGetCurrentUser'
 import { usePauseNotificationMenuItem } from '@/hooks/usePauseNotificationMenuItem'
 
-interface LinkProps {
-  children: React.ReactNode
-  href: string
-  [key: string]: any
-}
+type SettingsLinkProps = React.ComponentPropsWithoutRef<typeof Link>;
 
-const SettingsLink = forwardRef((props: LinkProps, ref: React.ForwardedRef<HTMLAnchorElement>) => {
-  let { href, children, ...rest } = props
-
-  return (
-    <Link href={href} ref={ref} {...rest}>
+const SettingsLink = forwardRef<HTMLAnchorElement, SettingsLinkProps>(
+  ({ href, children, ...rest }, ref) => (
+    <Link ref={ref} href={href} {...rest}>
       {children}
     </Link>
   )
-})
+);
 
-SettingsLink.displayName = 'SettingsLink'
+SettingsLink.displayName = 'SettingsLink';
 
 export function ProfileDropdown({
   trigger,
