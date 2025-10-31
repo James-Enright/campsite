@@ -42,8 +42,6 @@ export interface GetMarkdownExtensionsOptions {
 
   blurAtTop?: Partial<E.BlurAtTopOptions> & { enabled?: boolean }
 
-  details?: Partial<E.DetailsOptions>
-
   relativeTime?: Partial<E.RelativeTimeOptions> & {
     disabled?: boolean
     addNodeView?(): NodeViewRenderer
@@ -105,12 +103,6 @@ export function getMarkdownExtensions(options?: GetMarkdownExtensionsOptions) {
     E.TaskList,
     E.Mention.configure(options?.mention),
     E.Reaction,
-
-    E.Details.configure(options?.details),
-    E.DetailsContent.extend({
-      content: '(block|customBlock?)+'
-    }),
-    E.DetailsSummary,
 
     E.PostNoteAttachment.extend({
       addNodeView: options?.postNoteAttachment?.addNodeView,
